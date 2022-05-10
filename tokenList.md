@@ -32,4 +32,22 @@ Not at first place:
 0 1 2 3 4 5 6 7 8 9
 ```
 
+## Strings
 
+Array of characters ended with a null character
+
+
+## Operators
+
+### Arithmetic Operators
+- Addition `+`
+- Subtraction
+- Multiplication
+- Division
+- Modulus
+### Increment and Decrement Operators
+### Relational Operators
+### Logical Operators
+### Bitwise Operators
+### Assignment Operators
+### Misc Operators
