@@ -21,6 +21,7 @@ class        friend      new
 
 ## Identifiers
 
+Contains:
 ```
 _ a b c d e f g h i j k l m
 n o p q r s t u v w x y z
@@ -32,12 +33,36 @@ Not at first place:
 0 1 2 3 4 5 6 7 8 9
 ```
 
-## Strings
+## Constants
 
-Array of characters ended with a null character
+Value of constants never changes during execution once defined
 
+- `const` keyword
+- `#define` preprocessor
 
-## Special symbols
+## Strings and character literals
+
+Array of characters ended with a null character. Defined by `" "` or by char array. 
+
+# Escape sequences
+- `\n` Newline
+- `\t` Horizontal tab
+- `\\` Backslash
+- `?` or `\?` Question mark
+- `\v` Vertical tab
+- `\'` Single quote
+- `\"` Double quote
+- `\b` Backspace
+- `\r` Carriage return
+- `\0` The null character
+- `\f` Form feed
+- `\ooo` Octal
+- `\a` Alert (bell)
+- `\xhhh` Hexadecimal
+
+> prefixes e.g. 
+
+## Special symbols / Punctuators
 
 - `[]` Brackets
 - `()` Parentheses
