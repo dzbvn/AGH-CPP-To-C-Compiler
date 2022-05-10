@@ -44,7 +44,7 @@ Value of constants never changes during execution once defined
 
 Array of characters ended with a null character. Defined by `" "` or by char array. 
 
-# Escape sequences
+### Escape sequences
 - `\n` Newline
 - `\t` Horizontal tab
 - `\\` Backslash
@@ -61,6 +61,12 @@ Array of characters ended with a null character. Defined by `" "` or by char arr
 - `\xhhh` Hexadecimal
 
 > prefixes e.g. 
+
+
+## Numeric, boolean, and pointer literals
+- type `int` -> only digits
+- type `float` -> contain decimal point `.`
+- type `bool` -> `true` or `false`
 
 ## Special symbols / Punctuators
 
