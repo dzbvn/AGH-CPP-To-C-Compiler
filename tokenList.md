@@ -40,14 +40,48 @@ Array of characters ended with a null character
 ## Operators
 
 ### Arithmetic Operators
-- Addition `+`
-- Subtraction
-- Multiplication
-- Division
-- Modulus
+- `+` Addition 
+- `-` Subtraction 
+- `*` Multiplication
+- `\` Division
+- `%` Modulus
+
 ### Increment and Decrement Operators
+- `++` Increment
+- `--` Decrement 
+
 ### Relational Operators
+- `==` Is equal to
+- `!=` Is not equal to 
+- `>` Greater than
+- `<` Less than
+- `>=` Greater than or equal
+- `<=` Less than or equal
+
 ### Logical Operators
+- `&&` And operator
+- `||` Or operator
+- `!` Not operator
+
 ### Bitwise Operators
+- `&` Bitwise and 
+- `|` Bitwise or 
+- `^` Bitwise xor 
+- `<<` Left shift 
+- `>>` Right shift
+- `~` Bitwise not
+
 ### Assignment Operators
+- `=` Assign
+- `+=` Increments, then assign
+- `-=` Decrements, then assign
+- `*=` Multiplies, then assign
+- `/=` Divides, then assign
+- `%=` Modulus, then assigns    
+- `<<=` Left shift and assigns
+- `>>=` Right shift and assigns
+- `&=` Bitwise AND assigns 
+- `^=` Bitwise exclusive OR and assigns
+- `|=` Bitwise inclusive OR and assigns
+
 ### Misc Operators
