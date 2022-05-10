@@ -37,6 +37,15 @@ Not at first place:
 Array of characters ended with a null character
 
 
+## Special symbols
+
+- `[]` Brackets
+- `()` Parentheses
+- `{}` Braces
+- `:` Colon
+- `;` Semicolon
+- `#` Pre-processor
+
 ## Operators
 
 ### Arithmetic Operators
@@ -85,3 +94,8 @@ Array of characters ended with a null character
 - `|=` Bitwise inclusive OR and assigns
 
 ### Misc Operators
+- `,` Comma operator
+- `sizeOf()` Returns the size of a memory location.  
+- `&` Returns the address of a memory location.
+- `*` Pointer to a variable.
+- `?:` Conditional Expression
