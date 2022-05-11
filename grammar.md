@@ -1,6 +1,15 @@
 # Grammar
 
 
+## If
+ifstatement := \
+`if` (expression) `{` \ 
+body `}` \
+[ `else` `{`\
+body\
+`}` ]
+
+
 ## Function 
 head := type name ( [params] ) \
 params := param { , param } \
@@ -11,3 +20,4 @@ type =: `int`
         | `string` 
         | name
 
+## If
