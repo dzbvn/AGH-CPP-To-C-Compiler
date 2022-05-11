@@ -1,10 +1,15 @@
 # Grammar
 
-body := ( `ifStatement` | `loop` | `expression` )
+body := `ifStatement` | `loop` | `expression` 
 
-loop :=  ( `forLoop` | `whileLoop` | `doWhileLoop` )
+loop :=  `forLoop` | `whileLoop` | `doWhileLoop` 
 
-forLoop := `FOR` `(` `typeMath`  `ID` `ASSIGN` `intVal` `SEMICOLON` (`comparison` | `boolVal`) `SEMICOLON` `expression` `)`
+comparator := `EQUAL` | `NOT_EQUAL` | `GREATER` | `GREATER_OR_EQUAL` | `LESS` | `LESS_OR_EQUAL` 
+
+comparison := `val` `comparator` `val`
+
+forLoop := `FOR` `(` `typeMath`  `ID` `ASSIGN` `intVal` `SEMICOLON` (`comparison` | `boolVal`) `SEMICOLON` `expression` `)` `{` `body` `}` 
+
 
 typeMath := `int` | `double` | `float` 
 ## For loop
