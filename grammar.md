@@ -38,9 +38,11 @@ header := `LOCAL_HEADER` | `STANDARD_LIBRARY`
 
 function := `headF` `{` `bodyF` `}`
 
-headF := `type` `ID` `(` [params] `)`
+headF := `type` `ID` `(` [`params`] `)`
 
-params := param [, param]*
+params := `param` [, `param`]*
+
+param :=  `type` `ID`
 
 bodyF := `body` `returnStatement`
 
