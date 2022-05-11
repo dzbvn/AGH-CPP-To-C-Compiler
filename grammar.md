@@ -16,9 +16,11 @@ assignOperatorMath := `INCREMENTS_ASSIGN` | `DECREMENTS_ASSIGN` | `MULTIPLIES_AS
 
 expression := `val` ( `operatorMath` | `assignOperatorMath` ) `val` `SEMICOLON`
 
-forLoop := `FOR` `(` `typeMath`  `ID` `ASSIGN` `intVal` `SEMICOLON` `ID` `comparator` `valMath` `SEMICOLON` `expression` `)` `{` `body` `}` 
+forLoop := `FOR` `(` `typeMath`  `ID` `ASSIGN` `valMath` `SEMICOLON` `ID` `comparator` `valMath` `SEMICOLON` `expression` `)` `{` `body` `}` 
 
 typeMath := `INT` | `DOUBLE` | `FLOAT` 
+
+valMath := `intVal` | `floatVal` | `doubleVal`
 
 whileLoop := `WHILE` `(` `comparison` `)` `{` `body` `}` 
 
@@ -34,17 +36,16 @@ include := `PREPROCESSOR` `INCLUDE` `header`
 
 header := `LOCAL_HEADER` | `STANDARD_LIBRARY`
 
+function := `headF` `{` `bodyF` `}`
+
+headF := `type` `ID` `(` [params] `)`
+
+params := param [, param]*
+
+bodyF := `body` `returnStatement`
+
+returnStatement := `RETURN` ( `ID` | `expression` | `val` )
+
+val := `INT_VAL` | `CHAR_VAL` | `FLOAT_VAL` |  `STRING_VAL` | `DOUBLE_VAL`
 
 
-
-## Function 
-head := type name `(` [params] `)` \
-params := param { , param } \
-param := type name \
-type := `int` 
-        | `double` 
-        | `char` 
-        | `string` 
-        | name
-
-## If

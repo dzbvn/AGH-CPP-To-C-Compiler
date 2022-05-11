@@ -55,3 +55,4 @@
 | [a-zA-Z_][a-zA-Z_0-9]* | `ID` |
 | [.][h]$ | `LOCAL_HEADER` |
 | ^[<].*[>]$  | `STANDARD_LIBRARY` |
+| ^\d+$ | `INT_VAL` |
