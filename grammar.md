@@ -1,6 +1,8 @@
 # Grammar
 
-body := `ifStatement` | `loop` | `expression` 
+type := `INT` | `DOUBLE` | `FLOAT` | `CHAR` | `STRING`
+
+body := `ifStatement` | `loop` | `expression`  
 
 loop :=  `forLoop` | `whileLoop` | `doWhileLoop` 
 
@@ -16,7 +18,7 @@ expression := `val` ( `operatorMath` | `assignOperatorMath` ) `val` `SEMICOLON`
 
 forLoop := `FOR` `(` `typeMath`  `ID` `ASSIGN` `intVal` `SEMICOLON` `ID` `comparator` `valMath` `SEMICOLON` `expression` `)` `{` `body` `}` 
 
-typeMath := `int` | `double` | `float` 
+typeMath := `INT` | `DOUBLE` | `FLOAT` 
 
 whileLoop := `WHILE` `(` `comparison` `)` `{` `body` `}` 
 
@@ -24,7 +26,15 @@ doWhileLoop := `DO` `{` `body` `}` `WHILE` `(` `comparison` `)` `SEMICOLON`
 
 ifStatement := `IF` `(` `comparison` [ ( `AND` | `OR` ) `comparison`]) `{` `body` `}` [ `ELSE` `{` `body` `}` ]
 
-switchStatement := `SWITCH` `(` `expression` `)` `{` `CASE` } 
+switchStatement := `SWITCH` `(` `expression` `)` `{` `cases` [`DEFAULT` `COLON`] `}` 
+
+cases := `CASE` `val` `COLON` `body` `BREAK` `SEMICOLON` [`CASE` `val` `COLON` `body` `BREAK` `SEMICOLON`]*
+
+include := `PREPROCESSOR` `INCLUDE` `header`
+
+header := `LOCAL_HEADER` | `STANDARD_LIBRARY`
+
+
 
 
 ## Function 

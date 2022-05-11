@@ -8,6 +8,7 @@
 | continue  | `CONTINUE`  |
 | do        | `DO`        |
 | double    | `DOUBLE`    |
+| default   | `DEFAULT`   |
 | else      | `ELSE`      |
 | float     | `FLOAT`     |
 | for       | `FOR`       |
@@ -52,3 +53,5 @@
 | ; | `SEMICOLON` |
 | # | `PREPROCESSOR` |
 | [a-zA-Z_][a-zA-Z_0-9]* | `ID` |
+| [.][h]$ | `LOCAL_HEADER` |
+| ^[<].*[>]$  | `STANDARD_LIBRARY` |
