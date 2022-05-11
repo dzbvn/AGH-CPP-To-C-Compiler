@@ -13,6 +13,7 @@
 | for       | `FOR`       |
 | goto      | `GOTO`      |
 | if        | `IF`        |
+| else      | `ELSE`      |
 | int       | `INT`       |
 | return    | `RETURN`    |
 | struct    | `STRUCT`    |

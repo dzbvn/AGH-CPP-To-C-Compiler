@@ -8,7 +8,13 @@ comparator := `EQUAL` | `NOT_EQUAL` | `GREATER` | `GREATER_OR_EQUAL` | `LESS` | 
 
 comparison := `val` `comparator` `val`
 
-forLoop := `FOR` `(` `typeMath`  `ID` `ASSIGN` `intVal` `SEMICOLON` (`comparison` | `boolVal`) `SEMICOLON` `expression` `)` `{` `body` `}` 
+operatorMath := `ADDITION` | `SUBSTRACTION` | `DIVISION` | `MODULUS` | `MULTIPLICATION` 
+
+assignOperatorMath := `INCREMENTS_ASSIGN` | `DECREMENTS_ASSIGN` | `MULTIPLIES_ASSIGN` | `DIVIDES_ASSIGN` | `MODULUS_ASSIGN`
+
+expression := `val` ( `operatorMath` | `assignOperatorMath` ) `val` `SEMICOLON`
+
+forLoop := `FOR` `(` `typeMath`  `ID` `ASSIGN` `intVal` `SEMICOLON` `ID` `comparator` `valMath` `SEMICOLON` `expression` `)` `{` `body` `}` 
 
 typeMath := `int` | `double` | `float` 
 
@@ -16,17 +22,10 @@ whileLoop := `WHILE` `(` `comparison` `)` `{` `body` `}`
 
 doWhileLoop := `DO` `{` `body` `}` `WHILE` `(` `comparison` `)` `SEMICOLON`
 
-## For loop
+ifStatement := `IF` `(` `comparison` [ ( `AND` | `OR` ) `comparison`]) `{` `body` `}` [ `ELSE` `{` `body` `}` ]
 
-forloop := \
-`for` `(` type name `=` )
+switchStatement := `SWITCH` `(` `expression` `)` `{` `CASE` } 
 
-## If
-ifstatement := \
-`if` (expression) `{` body `}`\
-[ `else` `{` body `}` ]
-
-expression := mathematical formula
 
 ## Function 
 head := type name `(` [params] `)` \
