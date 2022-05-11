@@ -41,3 +41,13 @@
 | *=  | `MULTIPLIES_ASSIGN` |
 | /= | `DIVIDES_ASSIGN` |
 | %= | `MODULUS_ASSIGN` |
+| [ | `BRACKET_LEFT` |
+| ] | `BRACKET_RIGHT` |
+| ( | `PARENTHESE_LEFT` |
+| ) | `PARENTHESE_RIGHT` |
+| { | `BRACE_LEFT` |
+| } | `BRACE_RIGHT` |
+| : | `COLON` |
+| ; | `SEMICOLON` |
+| # | `PREPROCESSOR` |
+| [a-zA-Z_][a-zA-Z_0-9]* | `ID` |
