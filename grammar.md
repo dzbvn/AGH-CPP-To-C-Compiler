@@ -10,8 +10,12 @@ comparison := `val` `comparator` `val`
 
 forLoop := `FOR` `(` `typeMath`  `ID` `ASSIGN` `intVal` `SEMICOLON` (`comparison` | `boolVal`) `SEMICOLON` `expression` `)` `{` `body` `}` 
 
-
 typeMath := `int` | `double` | `float` 
+
+whileLoop := `WHILE` `(` `comparison` `)` `{` `body` `}` 
+
+doWhileLoop := `DO` `{` `body` `}` `WHILE` `(` `comparison` `)` `SEMICOLON`
+
 ## For loop
 
 forloop := \
