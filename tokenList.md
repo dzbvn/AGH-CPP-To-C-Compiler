@@ -24,5 +24,20 @@
 | \         | `DIVISION`       |
 | %         | `MODULUS`        | 
 | *         | `MULTIPLICATION` |
-|++ |`INCREMENT`|
+| ++ |`INCREMENT`|
 | -- |`DECREMENT `|
+| ==| `EQUAL`|
+| != |`NOT_EQUAL`|
+| > |`GREATER`|
+| < |`LESS`|
+| >=| `GREATER_OR_EQUAL`|
+| <=| `LESS_OR_EQUAL`|
+| && | `AND`|
+| || | `OR`|
+| ! | `NOT`|
+| = | `ASSIGN` |
+| += | `INCREMENTS_ASSIGN` |
+| -= | `DECREMENTS_ASSIGN` |
+| *=  | `MULTIPLIES_ASSIGN` |
+| /= | `DIVIDES_ASSIGN` |
+| %= | `MODULUS_ASSIGN` |
