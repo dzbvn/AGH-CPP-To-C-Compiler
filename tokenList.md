@@ -130,3 +130,8 @@ Array of characters ended with a null character. Defined by `" "` or by char arr
 - `&` Returns the address of a memory location.
 - `*` Pointer to a variable.
 - `?:` Conditional Expression
+
+## G
+
+program := #include
+            
