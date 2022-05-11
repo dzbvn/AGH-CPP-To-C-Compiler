@@ -3,11 +3,8 @@
 
 ## If
 ifstatement := \
-`if` (expression) `{`\ 
-body `}`\
-[ `else` `{`\
-body\
-`}` ]
+`if` (expression) `{` body `}`\
+[ `else` `{` body `}` ]
 
 
 ## Function 
