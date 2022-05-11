@@ -1,7 +1,7 @@
 # Grammar
 
-type =: `int` 
-        | `double`
-        | `char`
-        | `string` 
+type =: `int` \
+        | `double` \
+        | `char` \
+        | `string` \ 
         | name
