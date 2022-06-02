@@ -1,4 +1,4 @@
-'''
+`
 Rule 0     S' -> start
 Rule 1     start -> program
 Rule 2     program -> elements
@@ -59,4 +59,4 @@ Rule 56    type -> CHAR
 Rule 57    type -> DOUBLE
 Rule 58    type -> VOID
 Rule 59    empty -> <empty>
-'''
+`
