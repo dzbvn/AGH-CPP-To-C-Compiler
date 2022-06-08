@@ -1,0 +1,1760 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    ADDITION
+    AUTO
+    BRACKET_LEFT
+    BRACKET_RIGHT
+    BREAK
+    CASE
+    COLON
+    CONST
+    CONTINUE
+    DECREMENT
+    DEFAULT
+    DIVISION
+    ELSE
+    FOR
+    GOTO
+    INCREMENT
+    MODULUS
+    MULTIPLICATION
+    NUMBER
+    STRUCT
+    SUBSTRACTION
+    SWITCH
+
+Grammar
+
+Rule 0     S' -> start
+Rule 1     start -> program
+Rule 2     program -> elements
+Rule 3     header -> PREPROCESSOR INCLUDE LIBRARY
+Rule 4     elements -> element
+Rule 5     elements -> element elements
+Rule 6     element -> function_definition
+Rule 7     element -> void_function_definition
+Rule 8     element -> header
+Rule 9     element -> empty
+Rule 10    function_definition -> type ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions return_statement BRACE_RIGHT
+Rule 11    void_function_definition -> VOID ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+Rule 12    function_parameters -> type ID
+Rule 13    function_parameters -> type ID COMMA function_parameters
+Rule 14    function_parameters -> empty
+Rule 15    expressions -> expression
+Rule 16    expressions -> expression expressions
+Rule 17    expressions -> empty
+Rule 18    expression -> conditional_expression
+Rule 19    expression -> iteration_expression
+Rule 20    expression -> print_expression
+Rule 21    expression -> assignment_expression
+Rule 22    expression -> empty
+Rule 23    assignment_expression -> ID assignment_operator val SEMICOLON
+Rule 24    assignment_expression -> ID assignment_operator ID SEMICOLON
+Rule 25    assignment_operator -> ASSIGN
+Rule 26    assignment_operator -> INCREMENTS_ASSIGN
+Rule 27    assignment_operator -> DECREMENTS_ASSIGN
+Rule 28    assignment_operator -> MULTIPLIES_ASSIGN
+Rule 29    assignment_operator -> DIVIDES_ASSIGN
+Rule 30    assignment_operator -> MODULUS_ASSIGN
+Rule 31    print_expression -> COUT OUTPUT val SEMICOLON
+Rule 32    iteration_expression -> while_iteration
+Rule 33    iteration_expression -> do_while_iteration
+Rule 34    while_iteration -> WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+Rule 35    do_while_iteration -> DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON
+Rule 36    conditional_expression -> IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+Rule 37    condition -> NOT ID
+Rule 38    condition -> condition logical_operator condition
+Rule 39    condition -> val comparison_operator val
+Rule 40    condition -> val
+Rule 41    comparison_operator -> GREATER
+Rule 42    comparison_operator -> LESS
+Rule 43    comparison_operator -> GREATER_OR_EQUAL
+Rule 44    comparison_operator -> LESS_OR_EQUAL
+Rule 45    comparison_operator -> NOT_EQUAL
+Rule 46    comparison_operator -> EQUAL
+Rule 47    logical_operator -> AND
+Rule 48    logical_operator -> OR
+Rule 49    return_statement -> RETURN val SEMICOLON
+Rule 50    val -> FLOAT_VAL
+Rule 51    val -> INT_VAL
+Rule 52    val -> ID
+Rule 53    type -> INT
+Rule 54    type -> FLOAT
+Rule 55    type -> STRING
+Rule 56    type -> CHAR
+Rule 57    type -> DOUBLE
+Rule 58    type -> VOID
+Rule 59    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ADDITION             : 
+AND                  : 47
+ASSIGN               : 25
+AUTO                 : 
+BRACE_LEFT           : 10 11 34 35 36
+BRACE_RIGHT          : 10 11 34 35 36
+BRACKET_LEFT         : 
+BRACKET_RIGHT        : 
+BREAK                : 
+CASE                 : 
+CHAR                 : 56
+COLON                : 
+COMMA                : 13
+CONST                : 
+CONTINUE             : 
+COUT                 : 31
+DECREMENT            : 
+DECREMENTS_ASSIGN    : 27
+DEFAULT              : 
+DIVIDES_ASSIGN       : 29
+DIVISION             : 
+DO                   : 35
+DOUBLE               : 57
+ELSE                 : 
+EQUAL                : 46
+FLOAT                : 54
+FLOAT_VAL            : 50
+FOR                  : 
+GOTO                 : 
+GREATER              : 41
+GREATER_OR_EQUAL     : 43
+ID                   : 10 11 12 13 23 24 24 37 52
+IF                   : 36
+INCLUDE              : 3
+INCREMENT            : 
+INCREMENTS_ASSIGN    : 26
+INT                  : 53
+INT_VAL              : 51
+LESS                 : 42
+LESS_OR_EQUAL        : 44
+LIBRARY              : 3
+MODULUS              : 
+MODULUS_ASSIGN       : 30
+MULTIPLICATION       : 
+MULTIPLIES_ASSIGN    : 28
+NOT                  : 37
+NOT_EQUAL            : 45
+NUMBER               : 
+OR                   : 48
+OUTPUT               : 31
+PARENTHESE_LEFT      : 10 11 34 35 36
+PARENTHESE_RIGHT     : 10 11 34 35 36
+PREPROCESSOR         : 3
+RETURN               : 49
+SEMICOLON            : 23 24 31 35 49
+STRING               : 55
+STRUCT               : 
+SUBSTRACTION         : 
+SWITCH               : 
+VOID                 : 11 58
+WHILE                : 34 35
+error                : 
+
+Nonterminals, with rules where they appear
+
+assignment_expression : 21
+assignment_operator  : 23 24
+comparison_operator  : 39
+condition            : 34 35 36 38 38
+conditional_expression : 18
+do_while_iteration   : 33
+element              : 4 5
+elements             : 2 5
+empty                : 9 14 17 22
+expression           : 15 16
+expressions          : 10 11 16 34 35 36
+function_definition  : 6
+function_parameters  : 10 11 13
+header               : 8
+iteration_expression : 19
+logical_operator     : 38
+print_expression     : 20
+program              : 1
+return_statement     : 10
+start                : 0
+type                 : 10 12 13
+val                  : 23 31 39 39 40 49
+void_function_definition : 7
+while_iteration      : 32
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . start
+    (1) start -> . program
+    (2) program -> . elements
+    (4) elements -> . element
+    (5) elements -> . element elements
+    (6) element -> . function_definition
+    (7) element -> . void_function_definition
+    (8) element -> . header
+    (9) element -> . empty
+    (10) function_definition -> . type ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions return_statement BRACE_RIGHT
+    (11) void_function_definition -> . VOID ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (3) header -> . PREPROCESSOR INCLUDE LIBRARY
+    (59) empty -> .
+    (53) type -> . INT
+    (54) type -> . FLOAT
+    (55) type -> . STRING
+    (56) type -> . CHAR
+    (57) type -> . DOUBLE
+    (58) type -> . VOID
+
+  ! shift/reduce conflict for VOID resolved as shift
+  ! shift/reduce conflict for PREPROCESSOR resolved as shift
+  ! shift/reduce conflict for INT resolved as shift
+  ! shift/reduce conflict for FLOAT resolved as shift
+  ! shift/reduce conflict for STRING resolved as shift
+  ! shift/reduce conflict for CHAR resolved as shift
+  ! shift/reduce conflict for DOUBLE resolved as shift
+    VOID            shift and go to state 10
+    PREPROCESSOR    shift and go to state 11
+    $end            reduce using rule 59 (empty -> .)
+    INT             shift and go to state 12
+    FLOAT           shift and go to state 13
+    STRING          shift and go to state 14
+    CHAR            shift and go to state 15
+    DOUBLE          shift and go to state 16
+
+  ! VOID            [ reduce using rule 59 (empty -> .) ]
+  ! PREPROCESSOR    [ reduce using rule 59 (empty -> .) ]
+  ! INT             [ reduce using rule 59 (empty -> .) ]
+  ! FLOAT           [ reduce using rule 59 (empty -> .) ]
+  ! STRING          [ reduce using rule 59 (empty -> .) ]
+  ! CHAR            [ reduce using rule 59 (empty -> .) ]
+  ! DOUBLE          [ reduce using rule 59 (empty -> .) ]
+
+    start                          shift and go to state 1
+    program                        shift and go to state 2
+    elements                       shift and go to state 3
+    element                        shift and go to state 4
+    function_definition            shift and go to state 5
+    void_function_definition       shift and go to state 6
+    header                         shift and go to state 7
+    empty                          shift and go to state 8
+    type                           shift and go to state 9
+
+state 1
+
+    (0) S' -> start .
+
+
+
+state 2
+
+    (1) start -> program .
+
+    $end            reduce using rule 1 (start -> program .)
+
+
+state 3
+
+    (2) program -> elements .
+
+    $end            reduce using rule 2 (program -> elements .)
+
+
+state 4
+
+    (4) elements -> element .
+    (5) elements -> element . elements
+    (4) elements -> . element
+    (5) elements -> . element elements
+    (6) element -> . function_definition
+    (7) element -> . void_function_definition
+    (8) element -> . header
+    (9) element -> . empty
+    (10) function_definition -> . type ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions return_statement BRACE_RIGHT
+    (11) void_function_definition -> . VOID ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (3) header -> . PREPROCESSOR INCLUDE LIBRARY
+    (59) empty -> .
+    (53) type -> . INT
+    (54) type -> . FLOAT
+    (55) type -> . STRING
+    (56) type -> . CHAR
+    (57) type -> . DOUBLE
+    (58) type -> . VOID
+
+  ! shift/reduce conflict for VOID resolved as shift
+  ! shift/reduce conflict for PREPROCESSOR resolved as shift
+  ! reduce/reduce conflict for $end resolved using rule 4 (elements -> element .)
+  ! shift/reduce conflict for INT resolved as shift
+  ! shift/reduce conflict for FLOAT resolved as shift
+  ! shift/reduce conflict for STRING resolved as shift
+  ! shift/reduce conflict for CHAR resolved as shift
+  ! shift/reduce conflict for DOUBLE resolved as shift
+    $end            reduce using rule 4 (elements -> element .)
+    VOID            shift and go to state 10
+    PREPROCESSOR    shift and go to state 11
+    INT             shift and go to state 12
+    FLOAT           shift and go to state 13
+    STRING          shift and go to state 14
+    CHAR            shift and go to state 15
+    DOUBLE          shift and go to state 16
+
+  ! VOID            [ reduce using rule 59 (empty -> .) ]
+  ! PREPROCESSOR    [ reduce using rule 59 (empty -> .) ]
+  ! INT             [ reduce using rule 59 (empty -> .) ]
+  ! FLOAT           [ reduce using rule 59 (empty -> .) ]
+  ! STRING          [ reduce using rule 59 (empty -> .) ]
+  ! CHAR            [ reduce using rule 59 (empty -> .) ]
+  ! DOUBLE          [ reduce using rule 59 (empty -> .) ]
+  ! $end            [ reduce using rule 59 (empty -> .) ]
+
+    element                        shift and go to state 4
+    elements                       shift and go to state 17
+    function_definition            shift and go to state 5
+    void_function_definition       shift and go to state 6
+    header                         shift and go to state 7
+    empty                          shift and go to state 8
+    type                           shift and go to state 9
+
+state 5
+
+    (6) element -> function_definition .
+
+    VOID            reduce using rule 6 (element -> function_definition .)
+    PREPROCESSOR    reduce using rule 6 (element -> function_definition .)
+    INT             reduce using rule 6 (element -> function_definition .)
+    FLOAT           reduce using rule 6 (element -> function_definition .)
+    STRING          reduce using rule 6 (element -> function_definition .)
+    CHAR            reduce using rule 6 (element -> function_definition .)
+    DOUBLE          reduce using rule 6 (element -> function_definition .)
+    $end            reduce using rule 6 (element -> function_definition .)
+
+
+state 6
+
+    (7) element -> void_function_definition .
+
+    VOID            reduce using rule 7 (element -> void_function_definition .)
+    PREPROCESSOR    reduce using rule 7 (element -> void_function_definition .)
+    INT             reduce using rule 7 (element -> void_function_definition .)
+    FLOAT           reduce using rule 7 (element -> void_function_definition .)
+    STRING          reduce using rule 7 (element -> void_function_definition .)
+    CHAR            reduce using rule 7 (element -> void_function_definition .)
+    DOUBLE          reduce using rule 7 (element -> void_function_definition .)
+    $end            reduce using rule 7 (element -> void_function_definition .)
+
+
+state 7
+
+    (8) element -> header .
+
+    VOID            reduce using rule 8 (element -> header .)
+    PREPROCESSOR    reduce using rule 8 (element -> header .)
+    INT             reduce using rule 8 (element -> header .)
+    FLOAT           reduce using rule 8 (element -> header .)
+    STRING          reduce using rule 8 (element -> header .)
+    CHAR            reduce using rule 8 (element -> header .)
+    DOUBLE          reduce using rule 8 (element -> header .)
+    $end            reduce using rule 8 (element -> header .)
+
+
+state 8
+
+    (9) element -> empty .
+
+    VOID            reduce using rule 9 (element -> empty .)
+    PREPROCESSOR    reduce using rule 9 (element -> empty .)
+    INT             reduce using rule 9 (element -> empty .)
+    FLOAT           reduce using rule 9 (element -> empty .)
+    STRING          reduce using rule 9 (element -> empty .)
+    CHAR            reduce using rule 9 (element -> empty .)
+    DOUBLE          reduce using rule 9 (element -> empty .)
+    $end            reduce using rule 9 (element -> empty .)
+
+
+state 9
+
+    (10) function_definition -> type . ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions return_statement BRACE_RIGHT
+
+    ID              shift and go to state 18
+
+
+state 10
+
+    (11) void_function_definition -> VOID . ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (58) type -> VOID .
+
+  ! shift/reduce conflict for ID resolved as shift
+    ID              shift and go to state 19
+
+  ! ID              [ reduce using rule 58 (type -> VOID .) ]
+
+
+state 11
+
+    (3) header -> PREPROCESSOR . INCLUDE LIBRARY
+
+    INCLUDE         shift and go to state 20
+
+
+state 12
+
+    (53) type -> INT .
+
+    ID              reduce using rule 53 (type -> INT .)
+
+
+state 13
+
+    (54) type -> FLOAT .
+
+    ID              reduce using rule 54 (type -> FLOAT .)
+
+
+state 14
+
+    (55) type -> STRING .
+
+    ID              reduce using rule 55 (type -> STRING .)
+
+
+state 15
+
+    (56) type -> CHAR .
+
+    ID              reduce using rule 56 (type -> CHAR .)
+
+
+state 16
+
+    (57) type -> DOUBLE .
+
+    ID              reduce using rule 57 (type -> DOUBLE .)
+
+
+state 17
+
+    (5) elements -> element elements .
+
+    $end            reduce using rule 5 (elements -> element elements .)
+
+
+state 18
+
+    (10) function_definition -> type ID . PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions return_statement BRACE_RIGHT
+
+    PARENTHESE_LEFT shift and go to state 21
+
+
+state 19
+
+    (11) void_function_definition -> VOID ID . PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+
+    PARENTHESE_LEFT shift and go to state 22
+
+
+state 20
+
+    (3) header -> PREPROCESSOR INCLUDE . LIBRARY
+
+    LIBRARY         shift and go to state 23
+
+
+state 21
+
+    (10) function_definition -> type ID PARENTHESE_LEFT . function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions return_statement BRACE_RIGHT
+    (12) function_parameters -> . type ID
+    (13) function_parameters -> . type ID COMMA function_parameters
+    (14) function_parameters -> . empty
+    (53) type -> . INT
+    (54) type -> . FLOAT
+    (55) type -> . STRING
+    (56) type -> . CHAR
+    (57) type -> . DOUBLE
+    (58) type -> . VOID
+    (59) empty -> .
+
+    INT             shift and go to state 12
+    FLOAT           shift and go to state 13
+    STRING          shift and go to state 14
+    CHAR            shift and go to state 15
+    DOUBLE          shift and go to state 16
+    VOID            shift and go to state 27
+    PARENTHESE_RIGHT reduce using rule 59 (empty -> .)
+
+    type                           shift and go to state 24
+    function_parameters            shift and go to state 25
+    empty                          shift and go to state 26
+
+state 22
+
+    (11) void_function_definition -> VOID ID PARENTHESE_LEFT . function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (12) function_parameters -> . type ID
+    (13) function_parameters -> . type ID COMMA function_parameters
+    (14) function_parameters -> . empty
+    (53) type -> . INT
+    (54) type -> . FLOAT
+    (55) type -> . STRING
+    (56) type -> . CHAR
+    (57) type -> . DOUBLE
+    (58) type -> . VOID
+    (59) empty -> .
+
+    INT             shift and go to state 12
+    FLOAT           shift and go to state 13
+    STRING          shift and go to state 14
+    CHAR            shift and go to state 15
+    DOUBLE          shift and go to state 16
+    VOID            shift and go to state 27
+    PARENTHESE_RIGHT reduce using rule 59 (empty -> .)
+
+    function_parameters            shift and go to state 28
+    type                           shift and go to state 24
+    empty                          shift and go to state 26
+
+state 23
+
+    (3) header -> PREPROCESSOR INCLUDE LIBRARY .
+
+    VOID            reduce using rule 3 (header -> PREPROCESSOR INCLUDE LIBRARY .)
+    PREPROCESSOR    reduce using rule 3 (header -> PREPROCESSOR INCLUDE LIBRARY .)
+    INT             reduce using rule 3 (header -> PREPROCESSOR INCLUDE LIBRARY .)
+    FLOAT           reduce using rule 3 (header -> PREPROCESSOR INCLUDE LIBRARY .)
+    STRING          reduce using rule 3 (header -> PREPROCESSOR INCLUDE LIBRARY .)
+    CHAR            reduce using rule 3 (header -> PREPROCESSOR INCLUDE LIBRARY .)
+    DOUBLE          reduce using rule 3 (header -> PREPROCESSOR INCLUDE LIBRARY .)
+    $end            reduce using rule 3 (header -> PREPROCESSOR INCLUDE LIBRARY .)
+
+
+state 24
+
+    (12) function_parameters -> type . ID
+    (13) function_parameters -> type . ID COMMA function_parameters
+
+    ID              shift and go to state 29
+
+
+state 25
+
+    (10) function_definition -> type ID PARENTHESE_LEFT function_parameters . PARENTHESE_RIGHT BRACE_LEFT expressions return_statement BRACE_RIGHT
+
+    PARENTHESE_RIGHT shift and go to state 30
+
+
+state 26
+
+    (14) function_parameters -> empty .
+
+    PARENTHESE_RIGHT reduce using rule 14 (function_parameters -> empty .)
+
+
+state 27
+
+    (58) type -> VOID .
+
+    ID              reduce using rule 58 (type -> VOID .)
+
+
+state 28
+
+    (11) void_function_definition -> VOID ID PARENTHESE_LEFT function_parameters . PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+
+    PARENTHESE_RIGHT shift and go to state 31
+
+
+state 29
+
+    (12) function_parameters -> type ID .
+    (13) function_parameters -> type ID . COMMA function_parameters
+
+    PARENTHESE_RIGHT reduce using rule 12 (function_parameters -> type ID .)
+    COMMA           shift and go to state 32
+
+
+state 30
+
+    (10) function_definition -> type ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT . BRACE_LEFT expressions return_statement BRACE_RIGHT
+
+    BRACE_LEFT      shift and go to state 33
+
+
+state 31
+
+    (11) void_function_definition -> VOID ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT . BRACE_LEFT expressions BRACE_RIGHT
+
+    BRACE_LEFT      shift and go to state 34
+
+
+state 32
+
+    (13) function_parameters -> type ID COMMA . function_parameters
+    (12) function_parameters -> . type ID
+    (13) function_parameters -> . type ID COMMA function_parameters
+    (14) function_parameters -> . empty
+    (53) type -> . INT
+    (54) type -> . FLOAT
+    (55) type -> . STRING
+    (56) type -> . CHAR
+    (57) type -> . DOUBLE
+    (58) type -> . VOID
+    (59) empty -> .
+
+    INT             shift and go to state 12
+    FLOAT           shift and go to state 13
+    STRING          shift and go to state 14
+    CHAR            shift and go to state 15
+    DOUBLE          shift and go to state 16
+    VOID            shift and go to state 27
+    PARENTHESE_RIGHT reduce using rule 59 (empty -> .)
+
+    type                           shift and go to state 24
+    function_parameters            shift and go to state 35
+    empty                          shift and go to state 26
+
+state 33
+
+    (10) function_definition -> type ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT . expressions return_statement BRACE_RIGHT
+    (15) expressions -> . expression
+    (16) expressions -> . expression expressions
+    (17) expressions -> . empty
+    (18) expression -> . conditional_expression
+    (19) expression -> . iteration_expression
+    (20) expression -> . print_expression
+    (21) expression -> . assignment_expression
+    (22) expression -> . empty
+    (59) empty -> .
+    (36) conditional_expression -> . IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (32) iteration_expression -> . while_iteration
+    (33) iteration_expression -> . do_while_iteration
+    (31) print_expression -> . COUT OUTPUT val SEMICOLON
+    (23) assignment_expression -> . ID assignment_operator val SEMICOLON
+    (24) assignment_expression -> . ID assignment_operator ID SEMICOLON
+    (34) while_iteration -> . WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (35) do_while_iteration -> . DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON
+
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for COUT resolved as shift
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+  ! shift/reduce conflict for DO resolved as shift
+    RETURN          reduce using rule 59 (empty -> .)
+    IF              shift and go to state 44
+    COUT            shift and go to state 47
+    ID              shift and go to state 36
+    WHILE           shift and go to state 48
+    DO              shift and go to state 49
+
+  ! IF              [ reduce using rule 59 (empty -> .) ]
+  ! COUT            [ reduce using rule 59 (empty -> .) ]
+  ! ID              [ reduce using rule 59 (empty -> .) ]
+  ! WHILE           [ reduce using rule 59 (empty -> .) ]
+  ! DO              [ reduce using rule 59 (empty -> .) ]
+
+    expressions                    shift and go to state 37
+    expression                     shift and go to state 38
+    empty                          shift and go to state 39
+    conditional_expression         shift and go to state 40
+    iteration_expression           shift and go to state 41
+    print_expression               shift and go to state 42
+    assignment_expression          shift and go to state 43
+    while_iteration                shift and go to state 45
+    do_while_iteration             shift and go to state 46
+
+state 34
+
+    (11) void_function_definition -> VOID ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT . expressions BRACE_RIGHT
+    (15) expressions -> . expression
+    (16) expressions -> . expression expressions
+    (17) expressions -> . empty
+    (18) expression -> . conditional_expression
+    (19) expression -> . iteration_expression
+    (20) expression -> . print_expression
+    (21) expression -> . assignment_expression
+    (22) expression -> . empty
+    (59) empty -> .
+    (36) conditional_expression -> . IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (32) iteration_expression -> . while_iteration
+    (33) iteration_expression -> . do_while_iteration
+    (31) print_expression -> . COUT OUTPUT val SEMICOLON
+    (23) assignment_expression -> . ID assignment_operator val SEMICOLON
+    (24) assignment_expression -> . ID assignment_operator ID SEMICOLON
+    (34) while_iteration -> . WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (35) do_while_iteration -> . DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON
+
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for COUT resolved as shift
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+  ! shift/reduce conflict for DO resolved as shift
+    BRACE_RIGHT     reduce using rule 59 (empty -> .)
+    IF              shift and go to state 44
+    COUT            shift and go to state 47
+    ID              shift and go to state 36
+    WHILE           shift and go to state 48
+    DO              shift and go to state 49
+
+  ! IF              [ reduce using rule 59 (empty -> .) ]
+  ! COUT            [ reduce using rule 59 (empty -> .) ]
+  ! ID              [ reduce using rule 59 (empty -> .) ]
+  ! WHILE           [ reduce using rule 59 (empty -> .) ]
+  ! DO              [ reduce using rule 59 (empty -> .) ]
+
+    expressions                    shift and go to state 50
+    expression                     shift and go to state 38
+    empty                          shift and go to state 39
+    conditional_expression         shift and go to state 40
+    iteration_expression           shift and go to state 41
+    print_expression               shift and go to state 42
+    assignment_expression          shift and go to state 43
+    while_iteration                shift and go to state 45
+    do_while_iteration             shift and go to state 46
+
+state 35
+
+    (13) function_parameters -> type ID COMMA function_parameters .
+
+    PARENTHESE_RIGHT reduce using rule 13 (function_parameters -> type ID COMMA function_parameters .)
+
+
+state 36
+
+    (23) assignment_expression -> ID . assignment_operator val SEMICOLON
+    (24) assignment_expression -> ID . assignment_operator ID SEMICOLON
+    (25) assignment_operator -> . ASSIGN
+    (26) assignment_operator -> . INCREMENTS_ASSIGN
+    (27) assignment_operator -> . DECREMENTS_ASSIGN
+    (28) assignment_operator -> . MULTIPLIES_ASSIGN
+    (29) assignment_operator -> . DIVIDES_ASSIGN
+    (30) assignment_operator -> . MODULUS_ASSIGN
+
+    ASSIGN          shift and go to state 52
+    INCREMENTS_ASSIGN shift and go to state 53
+    DECREMENTS_ASSIGN shift and go to state 54
+    MULTIPLIES_ASSIGN shift and go to state 55
+    DIVIDES_ASSIGN  shift and go to state 56
+    MODULUS_ASSIGN  shift and go to state 57
+
+    assignment_operator            shift and go to state 51
+
+state 37
+
+    (10) function_definition -> type ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions . return_statement BRACE_RIGHT
+    (49) return_statement -> . RETURN val SEMICOLON
+
+    RETURN          shift and go to state 59
+
+    return_statement               shift and go to state 58
+
+state 38
+
+    (15) expressions -> expression .
+    (16) expressions -> expression . expressions
+    (15) expressions -> . expression
+    (16) expressions -> . expression expressions
+    (17) expressions -> . empty
+    (18) expression -> . conditional_expression
+    (19) expression -> . iteration_expression
+    (20) expression -> . print_expression
+    (21) expression -> . assignment_expression
+    (22) expression -> . empty
+    (59) empty -> .
+    (36) conditional_expression -> . IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (32) iteration_expression -> . while_iteration
+    (33) iteration_expression -> . do_while_iteration
+    (31) print_expression -> . COUT OUTPUT val SEMICOLON
+    (23) assignment_expression -> . ID assignment_operator val SEMICOLON
+    (24) assignment_expression -> . ID assignment_operator ID SEMICOLON
+    (34) while_iteration -> . WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (35) do_while_iteration -> . DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON
+
+  ! reduce/reduce conflict for RETURN resolved using rule 15 (expressions -> expression .)
+  ! reduce/reduce conflict for BRACE_RIGHT resolved using rule 15 (expressions -> expression .)
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for COUT resolved as shift
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+  ! shift/reduce conflict for DO resolved as shift
+    RETURN          reduce using rule 15 (expressions -> expression .)
+    BRACE_RIGHT     reduce using rule 15 (expressions -> expression .)
+    IF              shift and go to state 44
+    COUT            shift and go to state 47
+    ID              shift and go to state 36
+    WHILE           shift and go to state 48
+    DO              shift and go to state 49
+
+  ! RETURN          [ reduce using rule 59 (empty -> .) ]
+  ! BRACE_RIGHT     [ reduce using rule 59 (empty -> .) ]
+  ! IF              [ reduce using rule 59 (empty -> .) ]
+  ! COUT            [ reduce using rule 59 (empty -> .) ]
+  ! ID              [ reduce using rule 59 (empty -> .) ]
+  ! WHILE           [ reduce using rule 59 (empty -> .) ]
+  ! DO              [ reduce using rule 59 (empty -> .) ]
+
+    expression                     shift and go to state 38
+    expressions                    shift and go to state 60
+    empty                          shift and go to state 39
+    conditional_expression         shift and go to state 40
+    iteration_expression           shift and go to state 41
+    print_expression               shift and go to state 42
+    assignment_expression          shift and go to state 43
+    while_iteration                shift and go to state 45
+    do_while_iteration             shift and go to state 46
+
+state 39
+
+    (17) expressions -> empty .
+    (22) expression -> empty .
+
+  ! reduce/reduce conflict for RETURN resolved using rule 17 (expressions -> empty .)
+  ! reduce/reduce conflict for BRACE_RIGHT resolved using rule 17 (expressions -> empty .)
+    RETURN          reduce using rule 17 (expressions -> empty .)
+    BRACE_RIGHT     reduce using rule 17 (expressions -> empty .)
+    IF              reduce using rule 22 (expression -> empty .)
+    COUT            reduce using rule 22 (expression -> empty .)
+    ID              reduce using rule 22 (expression -> empty .)
+    WHILE           reduce using rule 22 (expression -> empty .)
+    DO              reduce using rule 22 (expression -> empty .)
+
+  ! RETURN          [ reduce using rule 22 (expression -> empty .) ]
+  ! BRACE_RIGHT     [ reduce using rule 22 (expression -> empty .) ]
+
+
+state 40
+
+    (18) expression -> conditional_expression .
+
+    IF              reduce using rule 18 (expression -> conditional_expression .)
+    COUT            reduce using rule 18 (expression -> conditional_expression .)
+    ID              reduce using rule 18 (expression -> conditional_expression .)
+    WHILE           reduce using rule 18 (expression -> conditional_expression .)
+    DO              reduce using rule 18 (expression -> conditional_expression .)
+    RETURN          reduce using rule 18 (expression -> conditional_expression .)
+    BRACE_RIGHT     reduce using rule 18 (expression -> conditional_expression .)
+
+
+state 41
+
+    (19) expression -> iteration_expression .
+
+    IF              reduce using rule 19 (expression -> iteration_expression .)
+    COUT            reduce using rule 19 (expression -> iteration_expression .)
+    ID              reduce using rule 19 (expression -> iteration_expression .)
+    WHILE           reduce using rule 19 (expression -> iteration_expression .)
+    DO              reduce using rule 19 (expression -> iteration_expression .)
+    RETURN          reduce using rule 19 (expression -> iteration_expression .)
+    BRACE_RIGHT     reduce using rule 19 (expression -> iteration_expression .)
+
+
+state 42
+
+    (20) expression -> print_expression .
+
+    IF              reduce using rule 20 (expression -> print_expression .)
+    COUT            reduce using rule 20 (expression -> print_expression .)
+    ID              reduce using rule 20 (expression -> print_expression .)
+    WHILE           reduce using rule 20 (expression -> print_expression .)
+    DO              reduce using rule 20 (expression -> print_expression .)
+    RETURN          reduce using rule 20 (expression -> print_expression .)
+    BRACE_RIGHT     reduce using rule 20 (expression -> print_expression .)
+
+
+state 43
+
+    (21) expression -> assignment_expression .
+
+    IF              reduce using rule 21 (expression -> assignment_expression .)
+    COUT            reduce using rule 21 (expression -> assignment_expression .)
+    ID              reduce using rule 21 (expression -> assignment_expression .)
+    WHILE           reduce using rule 21 (expression -> assignment_expression .)
+    DO              reduce using rule 21 (expression -> assignment_expression .)
+    RETURN          reduce using rule 21 (expression -> assignment_expression .)
+    BRACE_RIGHT     reduce using rule 21 (expression -> assignment_expression .)
+
+
+state 44
+
+    (36) conditional_expression -> IF . PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+
+    PARENTHESE_LEFT shift and go to state 61
+
+
+state 45
+
+    (32) iteration_expression -> while_iteration .
+
+    IF              reduce using rule 32 (iteration_expression -> while_iteration .)
+    COUT            reduce using rule 32 (iteration_expression -> while_iteration .)
+    ID              reduce using rule 32 (iteration_expression -> while_iteration .)
+    WHILE           reduce using rule 32 (iteration_expression -> while_iteration .)
+    DO              reduce using rule 32 (iteration_expression -> while_iteration .)
+    RETURN          reduce using rule 32 (iteration_expression -> while_iteration .)
+    BRACE_RIGHT     reduce using rule 32 (iteration_expression -> while_iteration .)
+
+
+state 46
+
+    (33) iteration_expression -> do_while_iteration .
+
+    IF              reduce using rule 33 (iteration_expression -> do_while_iteration .)
+    COUT            reduce using rule 33 (iteration_expression -> do_while_iteration .)
+    ID              reduce using rule 33 (iteration_expression -> do_while_iteration .)
+    WHILE           reduce using rule 33 (iteration_expression -> do_while_iteration .)
+    DO              reduce using rule 33 (iteration_expression -> do_while_iteration .)
+    RETURN          reduce using rule 33 (iteration_expression -> do_while_iteration .)
+    BRACE_RIGHT     reduce using rule 33 (iteration_expression -> do_while_iteration .)
+
+
+state 47
+
+    (31) print_expression -> COUT . OUTPUT val SEMICOLON
+
+    OUTPUT          shift and go to state 62
+
+
+state 48
+
+    (34) while_iteration -> WHILE . PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+
+    PARENTHESE_LEFT shift and go to state 63
+
+
+state 49
+
+    (35) do_while_iteration -> DO . BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON
+
+    BRACE_LEFT      shift and go to state 64
+
+
+state 50
+
+    (11) void_function_definition -> VOID ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions . BRACE_RIGHT
+
+    BRACE_RIGHT     shift and go to state 65
+
+
+state 51
+
+    (23) assignment_expression -> ID assignment_operator . val SEMICOLON
+    (24) assignment_expression -> ID assignment_operator . ID SEMICOLON
+    (50) val -> . FLOAT_VAL
+    (51) val -> . INT_VAL
+    (52) val -> . ID
+
+    ID              shift and go to state 66
+    FLOAT_VAL       shift and go to state 68
+    INT_VAL         shift and go to state 69
+
+    val                            shift and go to state 67
+
+state 52
+
+    (25) assignment_operator -> ASSIGN .
+
+    ID              reduce using rule 25 (assignment_operator -> ASSIGN .)
+    FLOAT_VAL       reduce using rule 25 (assignment_operator -> ASSIGN .)
+    INT_VAL         reduce using rule 25 (assignment_operator -> ASSIGN .)
+
+
+state 53
+
+    (26) assignment_operator -> INCREMENTS_ASSIGN .
+
+    ID              reduce using rule 26 (assignment_operator -> INCREMENTS_ASSIGN .)
+    FLOAT_VAL       reduce using rule 26 (assignment_operator -> INCREMENTS_ASSIGN .)
+    INT_VAL         reduce using rule 26 (assignment_operator -> INCREMENTS_ASSIGN .)
+
+
+state 54
+
+    (27) assignment_operator -> DECREMENTS_ASSIGN .
+
+    ID              reduce using rule 27 (assignment_operator -> DECREMENTS_ASSIGN .)
+    FLOAT_VAL       reduce using rule 27 (assignment_operator -> DECREMENTS_ASSIGN .)
+    INT_VAL         reduce using rule 27 (assignment_operator -> DECREMENTS_ASSIGN .)
+
+
+state 55
+
+    (28) assignment_operator -> MULTIPLIES_ASSIGN .
+
+    ID              reduce using rule 28 (assignment_operator -> MULTIPLIES_ASSIGN .)
+    FLOAT_VAL       reduce using rule 28 (assignment_operator -> MULTIPLIES_ASSIGN .)
+    INT_VAL         reduce using rule 28 (assignment_operator -> MULTIPLIES_ASSIGN .)
+
+
+state 56
+
+    (29) assignment_operator -> DIVIDES_ASSIGN .
+
+    ID              reduce using rule 29 (assignment_operator -> DIVIDES_ASSIGN .)
+    FLOAT_VAL       reduce using rule 29 (assignment_operator -> DIVIDES_ASSIGN .)
+    INT_VAL         reduce using rule 29 (assignment_operator -> DIVIDES_ASSIGN .)
+
+
+state 57
+
+    (30) assignment_operator -> MODULUS_ASSIGN .
+
+    ID              reduce using rule 30 (assignment_operator -> MODULUS_ASSIGN .)
+    FLOAT_VAL       reduce using rule 30 (assignment_operator -> MODULUS_ASSIGN .)
+    INT_VAL         reduce using rule 30 (assignment_operator -> MODULUS_ASSIGN .)
+
+
+state 58
+
+    (10) function_definition -> type ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions return_statement . BRACE_RIGHT
+
+    BRACE_RIGHT     shift and go to state 70
+
+
+state 59
+
+    (49) return_statement -> RETURN . val SEMICOLON
+    (50) val -> . FLOAT_VAL
+    (51) val -> . INT_VAL
+    (52) val -> . ID
+
+    FLOAT_VAL       shift and go to state 68
+    INT_VAL         shift and go to state 69
+    ID              shift and go to state 72
+
+    val                            shift and go to state 71
+
+state 60
+
+    (16) expressions -> expression expressions .
+
+    RETURN          reduce using rule 16 (expressions -> expression expressions .)
+    BRACE_RIGHT     reduce using rule 16 (expressions -> expression expressions .)
+
+
+state 61
+
+    (36) conditional_expression -> IF PARENTHESE_LEFT . condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (37) condition -> . NOT ID
+    (38) condition -> . condition logical_operator condition
+    (39) condition -> . val comparison_operator val
+    (40) condition -> . val
+    (50) val -> . FLOAT_VAL
+    (51) val -> . INT_VAL
+    (52) val -> . ID
+
+    NOT             shift and go to state 74
+    FLOAT_VAL       shift and go to state 68
+    INT_VAL         shift and go to state 69
+    ID              shift and go to state 72
+
+    condition                      shift and go to state 73
+    val                            shift and go to state 75
+
+state 62
+
+    (31) print_expression -> COUT OUTPUT . val SEMICOLON
+    (50) val -> . FLOAT_VAL
+    (51) val -> . INT_VAL
+    (52) val -> . ID
+
+    FLOAT_VAL       shift and go to state 68
+    INT_VAL         shift and go to state 69
+    ID              shift and go to state 72
+
+    val                            shift and go to state 76
+
+state 63
+
+    (34) while_iteration -> WHILE PARENTHESE_LEFT . condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (37) condition -> . NOT ID
+    (38) condition -> . condition logical_operator condition
+    (39) condition -> . val comparison_operator val
+    (40) condition -> . val
+    (50) val -> . FLOAT_VAL
+    (51) val -> . INT_VAL
+    (52) val -> . ID
+
+    NOT             shift and go to state 74
+    FLOAT_VAL       shift and go to state 68
+    INT_VAL         shift and go to state 69
+    ID              shift and go to state 72
+
+    condition                      shift and go to state 77
+    val                            shift and go to state 75
+
+state 64
+
+    (35) do_while_iteration -> DO BRACE_LEFT . expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON
+    (15) expressions -> . expression
+    (16) expressions -> . expression expressions
+    (17) expressions -> . empty
+    (18) expression -> . conditional_expression
+    (19) expression -> . iteration_expression
+    (20) expression -> . print_expression
+    (21) expression -> . assignment_expression
+    (22) expression -> . empty
+    (59) empty -> .
+    (36) conditional_expression -> . IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (32) iteration_expression -> . while_iteration
+    (33) iteration_expression -> . do_while_iteration
+    (31) print_expression -> . COUT OUTPUT val SEMICOLON
+    (23) assignment_expression -> . ID assignment_operator val SEMICOLON
+    (24) assignment_expression -> . ID assignment_operator ID SEMICOLON
+    (34) while_iteration -> . WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (35) do_while_iteration -> . DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON
+
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for COUT resolved as shift
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+  ! shift/reduce conflict for DO resolved as shift
+    BRACE_RIGHT     reduce using rule 59 (empty -> .)
+    IF              shift and go to state 44
+    COUT            shift and go to state 47
+    ID              shift and go to state 36
+    WHILE           shift and go to state 48
+    DO              shift and go to state 49
+
+  ! IF              [ reduce using rule 59 (empty -> .) ]
+  ! COUT            [ reduce using rule 59 (empty -> .) ]
+  ! ID              [ reduce using rule 59 (empty -> .) ]
+  ! WHILE           [ reduce using rule 59 (empty -> .) ]
+  ! DO              [ reduce using rule 59 (empty -> .) ]
+
+    expressions                    shift and go to state 78
+    expression                     shift and go to state 38
+    empty                          shift and go to state 39
+    conditional_expression         shift and go to state 40
+    iteration_expression           shift and go to state 41
+    print_expression               shift and go to state 42
+    assignment_expression          shift and go to state 43
+    while_iteration                shift and go to state 45
+    do_while_iteration             shift and go to state 46
+
+state 65
+
+    (11) void_function_definition -> VOID ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .
+
+    VOID            reduce using rule 11 (void_function_definition -> VOID ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    PREPROCESSOR    reduce using rule 11 (void_function_definition -> VOID ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    INT             reduce using rule 11 (void_function_definition -> VOID ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    FLOAT           reduce using rule 11 (void_function_definition -> VOID ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    STRING          reduce using rule 11 (void_function_definition -> VOID ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    CHAR            reduce using rule 11 (void_function_definition -> VOID ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    DOUBLE          reduce using rule 11 (void_function_definition -> VOID ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    $end            reduce using rule 11 (void_function_definition -> VOID ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+
+
+state 66
+
+    (24) assignment_expression -> ID assignment_operator ID . SEMICOLON
+    (52) val -> ID .
+
+  ! shift/reduce conflict for SEMICOLON resolved as shift
+    SEMICOLON       shift and go to state 79
+
+  ! SEMICOLON       [ reduce using rule 52 (val -> ID .) ]
+
+
+state 67
+
+    (23) assignment_expression -> ID assignment_operator val . SEMICOLON
+
+    SEMICOLON       shift and go to state 80
+
+
+state 68
+
+    (50) val -> FLOAT_VAL .
+
+    SEMICOLON       reduce using rule 50 (val -> FLOAT_VAL .)
+    GREATER         reduce using rule 50 (val -> FLOAT_VAL .)
+    LESS            reduce using rule 50 (val -> FLOAT_VAL .)
+    GREATER_OR_EQUAL reduce using rule 50 (val -> FLOAT_VAL .)
+    LESS_OR_EQUAL   reduce using rule 50 (val -> FLOAT_VAL .)
+    NOT_EQUAL       reduce using rule 50 (val -> FLOAT_VAL .)
+    EQUAL           reduce using rule 50 (val -> FLOAT_VAL .)
+    PARENTHESE_RIGHT reduce using rule 50 (val -> FLOAT_VAL .)
+    AND             reduce using rule 50 (val -> FLOAT_VAL .)
+    OR              reduce using rule 50 (val -> FLOAT_VAL .)
+
+
+state 69
+
+    (51) val -> INT_VAL .
+
+    SEMICOLON       reduce using rule 51 (val -> INT_VAL .)
+    GREATER         reduce using rule 51 (val -> INT_VAL .)
+    LESS            reduce using rule 51 (val -> INT_VAL .)
+    GREATER_OR_EQUAL reduce using rule 51 (val -> INT_VAL .)
+    LESS_OR_EQUAL   reduce using rule 51 (val -> INT_VAL .)
+    NOT_EQUAL       reduce using rule 51 (val -> INT_VAL .)
+    EQUAL           reduce using rule 51 (val -> INT_VAL .)
+    PARENTHESE_RIGHT reduce using rule 51 (val -> INT_VAL .)
+    AND             reduce using rule 51 (val -> INT_VAL .)
+    OR              reduce using rule 51 (val -> INT_VAL .)
+
+
+state 70
+
+    (10) function_definition -> type ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions return_statement BRACE_RIGHT .
+
+    VOID            reduce using rule 10 (function_definition -> type ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions return_statement BRACE_RIGHT .)
+    PREPROCESSOR    reduce using rule 10 (function_definition -> type ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions return_statement BRACE_RIGHT .)
+    INT             reduce using rule 10 (function_definition -> type ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions return_statement BRACE_RIGHT .)
+    FLOAT           reduce using rule 10 (function_definition -> type ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions return_statement BRACE_RIGHT .)
+    STRING          reduce using rule 10 (function_definition -> type ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions return_statement BRACE_RIGHT .)
+    CHAR            reduce using rule 10 (function_definition -> type ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions return_statement BRACE_RIGHT .)
+    DOUBLE          reduce using rule 10 (function_definition -> type ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions return_statement BRACE_RIGHT .)
+    $end            reduce using rule 10 (function_definition -> type ID PARENTHESE_LEFT function_parameters PARENTHESE_RIGHT BRACE_LEFT expressions return_statement BRACE_RIGHT .)
+
+
+state 71
+
+    (49) return_statement -> RETURN val . SEMICOLON
+
+    SEMICOLON       shift and go to state 81
+
+
+state 72
+
+    (52) val -> ID .
+
+    SEMICOLON       reduce using rule 52 (val -> ID .)
+    GREATER         reduce using rule 52 (val -> ID .)
+    LESS            reduce using rule 52 (val -> ID .)
+    GREATER_OR_EQUAL reduce using rule 52 (val -> ID .)
+    LESS_OR_EQUAL   reduce using rule 52 (val -> ID .)
+    NOT_EQUAL       reduce using rule 52 (val -> ID .)
+    EQUAL           reduce using rule 52 (val -> ID .)
+    PARENTHESE_RIGHT reduce using rule 52 (val -> ID .)
+    AND             reduce using rule 52 (val -> ID .)
+    OR              reduce using rule 52 (val -> ID .)
+
+
+state 73
+
+    (36) conditional_expression -> IF PARENTHESE_LEFT condition . PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (38) condition -> condition . logical_operator condition
+    (47) logical_operator -> . AND
+    (48) logical_operator -> . OR
+
+    PARENTHESE_RIGHT shift and go to state 82
+    AND             shift and go to state 84
+    OR              shift and go to state 85
+
+    logical_operator               shift and go to state 83
+
+state 74
+
+    (37) condition -> NOT . ID
+
+    ID              shift and go to state 86
+
+
+state 75
+
+    (39) condition -> val . comparison_operator val
+    (40) condition -> val .
+    (41) comparison_operator -> . GREATER
+    (42) comparison_operator -> . LESS
+    (43) comparison_operator -> . GREATER_OR_EQUAL
+    (44) comparison_operator -> . LESS_OR_EQUAL
+    (45) comparison_operator -> . NOT_EQUAL
+    (46) comparison_operator -> . EQUAL
+
+    PARENTHESE_RIGHT reduce using rule 40 (condition -> val .)
+    AND             reduce using rule 40 (condition -> val .)
+    OR              reduce using rule 40 (condition -> val .)
+    GREATER         shift and go to state 88
+    LESS            shift and go to state 89
+    GREATER_OR_EQUAL shift and go to state 90
+    LESS_OR_EQUAL   shift and go to state 91
+    NOT_EQUAL       shift and go to state 92
+    EQUAL           shift and go to state 93
+
+    comparison_operator            shift and go to state 87
+
+state 76
+
+    (31) print_expression -> COUT OUTPUT val . SEMICOLON
+
+    SEMICOLON       shift and go to state 94
+
+
+state 77
+
+    (34) while_iteration -> WHILE PARENTHESE_LEFT condition . PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (38) condition -> condition . logical_operator condition
+    (47) logical_operator -> . AND
+    (48) logical_operator -> . OR
+
+    PARENTHESE_RIGHT shift and go to state 95
+    AND             shift and go to state 84
+    OR              shift and go to state 85
+
+    logical_operator               shift and go to state 83
+
+state 78
+
+    (35) do_while_iteration -> DO BRACE_LEFT expressions . BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON
+
+    BRACE_RIGHT     shift and go to state 96
+
+
+state 79
+
+    (24) assignment_expression -> ID assignment_operator ID SEMICOLON .
+
+    IF              reduce using rule 24 (assignment_expression -> ID assignment_operator ID SEMICOLON .)
+    COUT            reduce using rule 24 (assignment_expression -> ID assignment_operator ID SEMICOLON .)
+    ID              reduce using rule 24 (assignment_expression -> ID assignment_operator ID SEMICOLON .)
+    WHILE           reduce using rule 24 (assignment_expression -> ID assignment_operator ID SEMICOLON .)
+    DO              reduce using rule 24 (assignment_expression -> ID assignment_operator ID SEMICOLON .)
+    RETURN          reduce using rule 24 (assignment_expression -> ID assignment_operator ID SEMICOLON .)
+    BRACE_RIGHT     reduce using rule 24 (assignment_expression -> ID assignment_operator ID SEMICOLON .)
+
+
+state 80
+
+    (23) assignment_expression -> ID assignment_operator val SEMICOLON .
+
+    IF              reduce using rule 23 (assignment_expression -> ID assignment_operator val SEMICOLON .)
+    COUT            reduce using rule 23 (assignment_expression -> ID assignment_operator val SEMICOLON .)
+    ID              reduce using rule 23 (assignment_expression -> ID assignment_operator val SEMICOLON .)
+    WHILE           reduce using rule 23 (assignment_expression -> ID assignment_operator val SEMICOLON .)
+    DO              reduce using rule 23 (assignment_expression -> ID assignment_operator val SEMICOLON .)
+    RETURN          reduce using rule 23 (assignment_expression -> ID assignment_operator val SEMICOLON .)
+    BRACE_RIGHT     reduce using rule 23 (assignment_expression -> ID assignment_operator val SEMICOLON .)
+
+
+state 81
+
+    (49) return_statement -> RETURN val SEMICOLON .
+
+    BRACE_RIGHT     reduce using rule 49 (return_statement -> RETURN val SEMICOLON .)
+
+
+state 82
+
+    (36) conditional_expression -> IF PARENTHESE_LEFT condition PARENTHESE_RIGHT . BRACE_LEFT expressions BRACE_RIGHT
+
+    BRACE_LEFT      shift and go to state 97
+
+
+state 83
+
+    (38) condition -> condition logical_operator . condition
+    (37) condition -> . NOT ID
+    (38) condition -> . condition logical_operator condition
+    (39) condition -> . val comparison_operator val
+    (40) condition -> . val
+    (50) val -> . FLOAT_VAL
+    (51) val -> . INT_VAL
+    (52) val -> . ID
+
+    NOT             shift and go to state 74
+    FLOAT_VAL       shift and go to state 68
+    INT_VAL         shift and go to state 69
+    ID              shift and go to state 72
+
+    condition                      shift and go to state 98
+    val                            shift and go to state 75
+
+state 84
+
+    (47) logical_operator -> AND .
+
+    NOT             reduce using rule 47 (logical_operator -> AND .)
+    FLOAT_VAL       reduce using rule 47 (logical_operator -> AND .)
+    INT_VAL         reduce using rule 47 (logical_operator -> AND .)
+    ID              reduce using rule 47 (logical_operator -> AND .)
+
+
+state 85
+
+    (48) logical_operator -> OR .
+
+    NOT             reduce using rule 48 (logical_operator -> OR .)
+    FLOAT_VAL       reduce using rule 48 (logical_operator -> OR .)
+    INT_VAL         reduce using rule 48 (logical_operator -> OR .)
+    ID              reduce using rule 48 (logical_operator -> OR .)
+
+
+state 86
+
+    (37) condition -> NOT ID .
+
+    PARENTHESE_RIGHT reduce using rule 37 (condition -> NOT ID .)
+    AND             reduce using rule 37 (condition -> NOT ID .)
+    OR              reduce using rule 37 (condition -> NOT ID .)
+
+
+state 87
+
+    (39) condition -> val comparison_operator . val
+    (50) val -> . FLOAT_VAL
+    (51) val -> . INT_VAL
+    (52) val -> . ID
+
+    FLOAT_VAL       shift and go to state 68
+    INT_VAL         shift and go to state 69
+    ID              shift and go to state 72
+
+    val                            shift and go to state 99
+
+state 88
+
+    (41) comparison_operator -> GREATER .
+
+    FLOAT_VAL       reduce using rule 41 (comparison_operator -> GREATER .)
+    INT_VAL         reduce using rule 41 (comparison_operator -> GREATER .)
+    ID              reduce using rule 41 (comparison_operator -> GREATER .)
+
+
+state 89
+
+    (42) comparison_operator -> LESS .
+
+    FLOAT_VAL       reduce using rule 42 (comparison_operator -> LESS .)
+    INT_VAL         reduce using rule 42 (comparison_operator -> LESS .)
+    ID              reduce using rule 42 (comparison_operator -> LESS .)
+
+
+state 90
+
+    (43) comparison_operator -> GREATER_OR_EQUAL .
+
+    FLOAT_VAL       reduce using rule 43 (comparison_operator -> GREATER_OR_EQUAL .)
+    INT_VAL         reduce using rule 43 (comparison_operator -> GREATER_OR_EQUAL .)
+    ID              reduce using rule 43 (comparison_operator -> GREATER_OR_EQUAL .)
+
+
+state 91
+
+    (44) comparison_operator -> LESS_OR_EQUAL .
+
+    FLOAT_VAL       reduce using rule 44 (comparison_operator -> LESS_OR_EQUAL .)
+    INT_VAL         reduce using rule 44 (comparison_operator -> LESS_OR_EQUAL .)
+    ID              reduce using rule 44 (comparison_operator -> LESS_OR_EQUAL .)
+
+
+state 92
+
+    (45) comparison_operator -> NOT_EQUAL .
+
+    FLOAT_VAL       reduce using rule 45 (comparison_operator -> NOT_EQUAL .)
+    INT_VAL         reduce using rule 45 (comparison_operator -> NOT_EQUAL .)
+    ID              reduce using rule 45 (comparison_operator -> NOT_EQUAL .)
+
+
+state 93
+
+    (46) comparison_operator -> EQUAL .
+
+    FLOAT_VAL       reduce using rule 46 (comparison_operator -> EQUAL .)
+    INT_VAL         reduce using rule 46 (comparison_operator -> EQUAL .)
+    ID              reduce using rule 46 (comparison_operator -> EQUAL .)
+
+
+state 94
+
+    (31) print_expression -> COUT OUTPUT val SEMICOLON .
+
+    IF              reduce using rule 31 (print_expression -> COUT OUTPUT val SEMICOLON .)
+    COUT            reduce using rule 31 (print_expression -> COUT OUTPUT val SEMICOLON .)
+    ID              reduce using rule 31 (print_expression -> COUT OUTPUT val SEMICOLON .)
+    WHILE           reduce using rule 31 (print_expression -> COUT OUTPUT val SEMICOLON .)
+    DO              reduce using rule 31 (print_expression -> COUT OUTPUT val SEMICOLON .)
+    RETURN          reduce using rule 31 (print_expression -> COUT OUTPUT val SEMICOLON .)
+    BRACE_RIGHT     reduce using rule 31 (print_expression -> COUT OUTPUT val SEMICOLON .)
+
+
+state 95
+
+    (34) while_iteration -> WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT . BRACE_LEFT expressions BRACE_RIGHT
+
+    BRACE_LEFT      shift and go to state 100
+
+
+state 96
+
+    (35) do_while_iteration -> DO BRACE_LEFT expressions BRACE_RIGHT . WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON
+
+    WHILE           shift and go to state 101
+
+
+state 97
+
+    (36) conditional_expression -> IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT . expressions BRACE_RIGHT
+    (15) expressions -> . expression
+    (16) expressions -> . expression expressions
+    (17) expressions -> . empty
+    (18) expression -> . conditional_expression
+    (19) expression -> . iteration_expression
+    (20) expression -> . print_expression
+    (21) expression -> . assignment_expression
+    (22) expression -> . empty
+    (59) empty -> .
+    (36) conditional_expression -> . IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (32) iteration_expression -> . while_iteration
+    (33) iteration_expression -> . do_while_iteration
+    (31) print_expression -> . COUT OUTPUT val SEMICOLON
+    (23) assignment_expression -> . ID assignment_operator val SEMICOLON
+    (24) assignment_expression -> . ID assignment_operator ID SEMICOLON
+    (34) while_iteration -> . WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (35) do_while_iteration -> . DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON
+
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for COUT resolved as shift
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+  ! shift/reduce conflict for DO resolved as shift
+    BRACE_RIGHT     reduce using rule 59 (empty -> .)
+    IF              shift and go to state 44
+    COUT            shift and go to state 47
+    ID              shift and go to state 36
+    WHILE           shift and go to state 48
+    DO              shift and go to state 49
+
+  ! IF              [ reduce using rule 59 (empty -> .) ]
+  ! COUT            [ reduce using rule 59 (empty -> .) ]
+  ! ID              [ reduce using rule 59 (empty -> .) ]
+  ! WHILE           [ reduce using rule 59 (empty -> .) ]
+  ! DO              [ reduce using rule 59 (empty -> .) ]
+
+    expressions                    shift and go to state 102
+    expression                     shift and go to state 38
+    empty                          shift and go to state 39
+    conditional_expression         shift and go to state 40
+    iteration_expression           shift and go to state 41
+    print_expression               shift and go to state 42
+    assignment_expression          shift and go to state 43
+    while_iteration                shift and go to state 45
+    do_while_iteration             shift and go to state 46
+
+state 98
+
+    (38) condition -> condition logical_operator condition .
+    (38) condition -> condition . logical_operator condition
+    (47) logical_operator -> . AND
+    (48) logical_operator -> . OR
+
+  ! shift/reduce conflict for AND resolved as shift
+  ! shift/reduce conflict for OR resolved as shift
+    PARENTHESE_RIGHT reduce using rule 38 (condition -> condition logical_operator condition .)
+    AND             shift and go to state 84
+    OR              shift and go to state 85
+
+  ! AND             [ reduce using rule 38 (condition -> condition logical_operator condition .) ]
+  ! OR              [ reduce using rule 38 (condition -> condition logical_operator condition .) ]
+
+    logical_operator               shift and go to state 83
+
+state 99
+
+    (39) condition -> val comparison_operator val .
+
+    PARENTHESE_RIGHT reduce using rule 39 (condition -> val comparison_operator val .)
+    AND             reduce using rule 39 (condition -> val comparison_operator val .)
+    OR              reduce using rule 39 (condition -> val comparison_operator val .)
+
+
+state 100
+
+    (34) while_iteration -> WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT . expressions BRACE_RIGHT
+    (15) expressions -> . expression
+    (16) expressions -> . expression expressions
+    (17) expressions -> . empty
+    (18) expression -> . conditional_expression
+    (19) expression -> . iteration_expression
+    (20) expression -> . print_expression
+    (21) expression -> . assignment_expression
+    (22) expression -> . empty
+    (59) empty -> .
+    (36) conditional_expression -> . IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (32) iteration_expression -> . while_iteration
+    (33) iteration_expression -> . do_while_iteration
+    (31) print_expression -> . COUT OUTPUT val SEMICOLON
+    (23) assignment_expression -> . ID assignment_operator val SEMICOLON
+    (24) assignment_expression -> . ID assignment_operator ID SEMICOLON
+    (34) while_iteration -> . WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT
+    (35) do_while_iteration -> . DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON
+
+  ! shift/reduce conflict for IF resolved as shift
+  ! shift/reduce conflict for COUT resolved as shift
+  ! shift/reduce conflict for ID resolved as shift
+  ! shift/reduce conflict for WHILE resolved as shift
+  ! shift/reduce conflict for DO resolved as shift
+    BRACE_RIGHT     reduce using rule 59 (empty -> .)
+    IF              shift and go to state 44
+    COUT            shift and go to state 47
+    ID              shift and go to state 36
+    WHILE           shift and go to state 48
+    DO              shift and go to state 49
+
+  ! IF              [ reduce using rule 59 (empty -> .) ]
+  ! COUT            [ reduce using rule 59 (empty -> .) ]
+  ! ID              [ reduce using rule 59 (empty -> .) ]
+  ! WHILE           [ reduce using rule 59 (empty -> .) ]
+  ! DO              [ reduce using rule 59 (empty -> .) ]
+
+    expressions                    shift and go to state 103
+    expression                     shift and go to state 38
+    empty                          shift and go to state 39
+    conditional_expression         shift and go to state 40
+    iteration_expression           shift and go to state 41
+    print_expression               shift and go to state 42
+    assignment_expression          shift and go to state 43
+    while_iteration                shift and go to state 45
+    do_while_iteration             shift and go to state 46
+
+state 101
+
+    (35) do_while_iteration -> DO BRACE_LEFT expressions BRACE_RIGHT WHILE . PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON
+
+    PARENTHESE_LEFT shift and go to state 104
+
+
+state 102
+
+    (36) conditional_expression -> IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions . BRACE_RIGHT
+
+    BRACE_RIGHT     shift and go to state 105
+
+
+state 103
+
+    (34) while_iteration -> WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions . BRACE_RIGHT
+
+    BRACE_RIGHT     shift and go to state 106
+
+
+state 104
+
+    (35) do_while_iteration -> DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT . condition PARENTHESE_RIGHT SEMICOLON
+    (37) condition -> . NOT ID
+    (38) condition -> . condition logical_operator condition
+    (39) condition -> . val comparison_operator val
+    (40) condition -> . val
+    (50) val -> . FLOAT_VAL
+    (51) val -> . INT_VAL
+    (52) val -> . ID
+
+    NOT             shift and go to state 74
+    FLOAT_VAL       shift and go to state 68
+    INT_VAL         shift and go to state 69
+    ID              shift and go to state 72
+
+    condition                      shift and go to state 107
+    val                            shift and go to state 75
+
+state 105
+
+    (36) conditional_expression -> IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .
+
+    IF              reduce using rule 36 (conditional_expression -> IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    COUT            reduce using rule 36 (conditional_expression -> IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    ID              reduce using rule 36 (conditional_expression -> IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    WHILE           reduce using rule 36 (conditional_expression -> IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    DO              reduce using rule 36 (conditional_expression -> IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    RETURN          reduce using rule 36 (conditional_expression -> IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    BRACE_RIGHT     reduce using rule 36 (conditional_expression -> IF PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+
+
+state 106
+
+    (34) while_iteration -> WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .
+
+    IF              reduce using rule 34 (while_iteration -> WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    COUT            reduce using rule 34 (while_iteration -> WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    ID              reduce using rule 34 (while_iteration -> WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    WHILE           reduce using rule 34 (while_iteration -> WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    DO              reduce using rule 34 (while_iteration -> WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    RETURN          reduce using rule 34 (while_iteration -> WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+    BRACE_RIGHT     reduce using rule 34 (while_iteration -> WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT BRACE_LEFT expressions BRACE_RIGHT .)
+
+
+state 107
+
+    (35) do_while_iteration -> DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition . PARENTHESE_RIGHT SEMICOLON
+    (38) condition -> condition . logical_operator condition
+    (47) logical_operator -> . AND
+    (48) logical_operator -> . OR
+
+    PARENTHESE_RIGHT shift and go to state 108
+    AND             shift and go to state 84
+    OR              shift and go to state 85
+
+    logical_operator               shift and go to state 83
+
+state 108
+
+    (35) do_while_iteration -> DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT . SEMICOLON
+
+    SEMICOLON       shift and go to state 109
+
+
+state 109
+
+    (35) do_while_iteration -> DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON .
+
+    IF              reduce using rule 35 (do_while_iteration -> DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON .)
+    COUT            reduce using rule 35 (do_while_iteration -> DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON .)
+    ID              reduce using rule 35 (do_while_iteration -> DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON .)
+    WHILE           reduce using rule 35 (do_while_iteration -> DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON .)
+    DO              reduce using rule 35 (do_while_iteration -> DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON .)
+    RETURN          reduce using rule 35 (do_while_iteration -> DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON .)
+    BRACE_RIGHT     reduce using rule 35 (do_while_iteration -> DO BRACE_LEFT expressions BRACE_RIGHT WHILE PARENTHESE_LEFT condition PARENTHESE_RIGHT SEMICOLON .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for VOID in state 0 resolved as shift
+WARNING: shift/reduce conflict for PREPROCESSOR in state 0 resolved as shift
+WARNING: shift/reduce conflict for INT in state 0 resolved as shift
+WARNING: shift/reduce conflict for FLOAT in state 0 resolved as shift
+WARNING: shift/reduce conflict for STRING in state 0 resolved as shift
+WARNING: shift/reduce conflict for CHAR in state 0 resolved as shift
+WARNING: shift/reduce conflict for DOUBLE in state 0 resolved as shift
+WARNING: shift/reduce conflict for VOID in state 4 resolved as shift
+WARNING: shift/reduce conflict for PREPROCESSOR in state 4 resolved as shift
+WARNING: shift/reduce conflict for INT in state 4 resolved as shift
+WARNING: shift/reduce conflict for FLOAT in state 4 resolved as shift
+WARNING: shift/reduce conflict for STRING in state 4 resolved as shift
+WARNING: shift/reduce conflict for CHAR in state 4 resolved as shift
+WARNING: shift/reduce conflict for DOUBLE in state 4 resolved as shift
+WARNING: shift/reduce conflict for ID in state 10 resolved as shift
+WARNING: shift/reduce conflict for IF in state 33 resolved as shift
+WARNING: shift/reduce conflict for COUT in state 33 resolved as shift
+WARNING: shift/reduce conflict for ID in state 33 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 33 resolved as shift
+WARNING: shift/reduce conflict for DO in state 33 resolved as shift
+WARNING: shift/reduce conflict for IF in state 34 resolved as shift
+WARNING: shift/reduce conflict for COUT in state 34 resolved as shift
+WARNING: shift/reduce conflict for ID in state 34 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 34 resolved as shift
+WARNING: shift/reduce conflict for DO in state 34 resolved as shift
+WARNING: shift/reduce conflict for IF in state 38 resolved as shift
+WARNING: shift/reduce conflict for COUT in state 38 resolved as shift
+WARNING: shift/reduce conflict for ID in state 38 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 38 resolved as shift
+WARNING: shift/reduce conflict for DO in state 38 resolved as shift
+WARNING: shift/reduce conflict for IF in state 64 resolved as shift
+WARNING: shift/reduce conflict for COUT in state 64 resolved as shift
+WARNING: shift/reduce conflict for ID in state 64 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 64 resolved as shift
+WARNING: shift/reduce conflict for DO in state 64 resolved as shift
+WARNING: shift/reduce conflict for SEMICOLON in state 66 resolved as shift
+WARNING: shift/reduce conflict for IF in state 97 resolved as shift
+WARNING: shift/reduce conflict for COUT in state 97 resolved as shift
+WARNING: shift/reduce conflict for ID in state 97 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 97 resolved as shift
+WARNING: shift/reduce conflict for DO in state 97 resolved as shift
+WARNING: shift/reduce conflict for AND in state 98 resolved as shift
+WARNING: shift/reduce conflict for OR in state 98 resolved as shift
+WARNING: shift/reduce conflict for IF in state 100 resolved as shift
+WARNING: shift/reduce conflict for COUT in state 100 resolved as shift
+WARNING: shift/reduce conflict for ID in state 100 resolved as shift
+WARNING: shift/reduce conflict for WHILE in state 100 resolved as shift
+WARNING: shift/reduce conflict for DO in state 100 resolved as shift
+WARNING: reduce/reduce conflict in state 4 resolved using rule (elements -> element)
+WARNING: rejected rule (empty -> <empty>) in state 4
+WARNING: reduce/reduce conflict in state 38 resolved using rule (expressions -> expression)
+WARNING: rejected rule (empty -> <empty>) in state 38
+WARNING: reduce/reduce conflict in state 39 resolved using rule (expressions -> empty)
+WARNING: rejected rule (expression -> empty) in state 39
