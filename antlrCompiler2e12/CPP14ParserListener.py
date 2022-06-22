@@ -439,6 +439,7 @@ class CPP14ParserListener(ParseTreeListener):
     def enterStatement(self, ctx:CPP14Parser.StatementContext):
         if(ctx.getText()[:6] == "return"):
             print(ctx.getText()[:6], end=' ')
+        
     
 
     # Exit a parse tree produced by CPP14Parser#statement.
@@ -493,7 +494,8 @@ class CPP14ParserListener(ParseTreeListener):
 
     # Enter a parse tree produced by CPP14Parser#condition.
     def enterCondition(self, ctx:CPP14Parser.ConditionContext):
-        pass
+        print(ctx.getText())
+  
 
     # Exit a parse tree produced by CPP14Parser#condition.
     def exitCondition(self, ctx:CPP14Parser.ConditionContext):
@@ -502,12 +504,15 @@ class CPP14ParserListener(ParseTreeListener):
 
     # Enter a parse tree produced by CPP14Parser#iterationStatement.
     def enterIterationStatement(self, ctx:CPP14Parser.IterationStatementContext):
-        tmp = "f"
-        i = 0
-        while(ctx.getText()[i] != '{'):
-            tmp += ctx.getText()[i + 1]
-            i += 1
-        print(tmp)
+        if(ctx.For() != None):
+            print(ctx.For(), end='')
+            print(ctx.LeftParen(), end='')
+            print(ctx.RightParen(), end='')
+        
+        
+        
+        
+        print(ctx.While())
 
     # Exit a parse tree produced by CPP14Parser#iterationStatement.
     def exitIterationStatement(self, ctx:CPP14Parser.IterationStatementContext):
